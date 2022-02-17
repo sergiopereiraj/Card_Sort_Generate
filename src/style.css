@@ -19,6 +19,7 @@ input::placeholder {
   height: 50px;
   display: inline-flex;
   padding: 10px 0px;
+  margin-top: 30px;
 }
 .random-cards .card {
   width: 50px;
@@ -91,4 +92,8 @@ input::placeholder {
   display: flex;
   width: 100%;
   transform: rotate(180deg);
+}
+.step-sorting-card {
+  display: flex;
+  flex-direction: column;
 }

@@ -14,6 +14,7 @@ window.onload = function() {
   let btnDraw = document.querySelector("#draw");
   let btnSort = document.querySelector("#sort");
   let randCards = document.querySelector(".random-cards");
+  let divSortCard = document.querySelector(".step-sorting-card");
 
   let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   let icons = ["spades", "cubs", "diamonds", "hearts"];
@@ -34,7 +35,7 @@ window.onload = function() {
   });
 
   btnSort.addEventListener("click", () => {
-    drawCard(1, 1);
+    sortingCard(cards_generated);
   });
 
   function generateCard() {
@@ -65,6 +66,19 @@ window.onload = function() {
         return "K";
       default:
         return nro;
+    }
+  }
+  function sortingCard(arr) {
+    let wall = arr.length - 1;
+    while (wall > 0) {
+      for (let index = 0; index < wall; index++) {
+        if (arr[index].nro > arr[index + 1].nro) {
+          let aux = arr[index];
+          arr[index] = arr[index + 1];
+          arr[index + 1] = aux;
+        }
+      }
+      wall--;
     }
   }
 };
