@@ -14,7 +14,7 @@ window.onload = function() {
   let btnDraw = document.querySelector("#draw");
   let btnSort = document.querySelector("#sort");
   let randCards = document.querySelector(".random-cards");
-  let divSortCard = document.querySelector(".step-sorting-card");
+  let sortCards = document.querySelector(".step-sorting-card");
 
   let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   let icons = ["spades", "cubs", "diamonds", "hearts"];
@@ -35,6 +35,7 @@ window.onload = function() {
   });
 
   btnSort.addEventListener("click", () => {
+    sortCards.innerHTML = "";
     sortingCard(cards_generated);
   });
 
@@ -77,8 +78,18 @@ window.onload = function() {
           arr[index] = arr[index + 1];
           arr[index + 1] = aux;
         }
+        generateSortCards();
       }
       wall--;
     }
+  }
+  function generateSortCards() {
+    // sortCards.innerHTML = "";
+    let randCards = document.createElement("div");
+    randCards.classList.add("random-cards");
+    cards_generated.forEach(card => {
+      randCards.appendChild(drawCard(card));
+    });
+    sortCards.appendChild(randCards);
   }
 };
